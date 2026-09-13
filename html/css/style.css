@@ -51,6 +51,12 @@ main ul {
     padding-left: 20px;
 }
 
+footer {
+    border-top: 2px solid #3b2312;
+    margin-top: 32px;
+    padding-top: 16px;
+}
+
 @media (min-width: 768px) {
     body{
         padding: 24px;
