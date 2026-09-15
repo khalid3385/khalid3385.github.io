@@ -34,6 +34,21 @@ p {
     padding-bottom: 8px;
 }
 
+nav a {
+    display: block;
+    padding: 12px 20px;
+    border: 2px solid #3b2312;
+    background-color: #ffffff;
+    color: #3b2312;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus{
+    bottom: #3b2312;
+    color:#ffffff;
+
+}
 nav ul {
     list-style: none;
     display: flex; 
