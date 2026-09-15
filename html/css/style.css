@@ -45,7 +45,7 @@ nav a {
 
 nav a:hover,
 nav a:focus{
-    bottom: #3b2312;
+    background-color: #3b2312;
     color:#ffffff;
 
 }
