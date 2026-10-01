@@ -44,6 +44,6 @@ projecten.forEach((project) => {
     projectitem.appendChild(beschrijvingElement);
     projectitem.appendChild(categorieElement);
 
-    lijst.appendChild(item);
+    lijst.appendChild(projectitem);
 
 });
