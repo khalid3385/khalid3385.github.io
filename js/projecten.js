@@ -26,8 +26,13 @@ const projecten = [
 ];
 
 const lijst = document.querySelector("#projecten-lijst");
+const filter = document.querySelector("#categorie-filter");
 
-projecten.forEach((project) => {
+function renderProjecten(item){
+
+    lijst.innerHTML = "";
+
+item.forEach((project) => {
 
     const projectitem = document.createElement("li");
 
@@ -46,4 +51,17 @@ projecten.forEach((project) => {
 
     lijst.appendChild(projectitem);
 
+    });
+}
+
+filter.addEventListener ("change", (event) =>{
+    const gekozenCategorie = event.target.value;
+    if (gekozenCategorie === "alle"){
+        renderProjecten(projecten);
+    } else {
+        const gefilterdeProjecten = projecten.filter((project) => project.categorie === gekozenCategorie)
+        renderProjecten(gefilterdeProjecten)
+    }
 });
+
+renderProjecten(projecten);
