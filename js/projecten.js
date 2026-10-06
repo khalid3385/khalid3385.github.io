@@ -29,39 +29,38 @@ const lijst = document.querySelector("#projecten-lijst");
 const filter = document.querySelector("#categorie-filter");
 
 function renderProjecten(item){
-
     lijst.innerHTML = "";
 
-item.forEach((project) => {
+    item.forEach((project) => {
+        const projectitem = document.createElement("li");
 
-    const projectitem = document.createElement("li");
+        const titelElement = document.createElement("h3");
+        titelElement.textContent = project.titel;
 
-    const titelElement = document.createElement("h3");
-    titelElement.textContent = project.titel;
+        const beschrijvingElement = document.createElement("p");
+        beschrijvingElement.textContent = project.beschrijving;
 
-    const beschrijvingElement = document.createElement("p");
-    beschrijvingElement.textContent = project.beschrijving;
+        const categorieElement = document.createElement("p");
+        categorieElement.textContent = project.categorie;
 
-    const categorieElement = document.createElement("p");
-    categorieElement.textContent = project.categorie;
+        projectitem.appendChild(titelElement);
+        projectitem.appendChild(beschrijvingElement);
+        projectitem.appendChild(categorieElement);
 
-    projectitem.appendChild(titelElement);
-    projectitem.appendChild(beschrijvingElement);
-    projectitem.appendChild(categorieElement);
-
-    lijst.appendChild(projectitem);
-
+        lijst.appendChild(projectitem);
     });
 }
 
-filter.addEventListener ("change", (event) =>{
-    const gekozenCategorie = event.target.value;
-    if (gekozenCategorie === "alle"){
-        renderProjecten(projecten);
-    } else {
-        const gefilterdeProjecten = projecten.filter((project) => project.categorie === gekozenCategorie)
-        renderProjecten(gefilterdeProjecten)
+function filterProjecten(categorie){
+    if (categorie === "alle") {
+        return projecten;
     }
+    return projecten.filter((project) => project.categorie === categorie);
+}
+
+filter.addEventListener("change", (event) => {
+    const gekozenCategorie = event.target.value;
+    renderProjecten(filterProjecten(gekozenCategorie));
 });
 
 renderProjecten(projecten);
