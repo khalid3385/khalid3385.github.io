@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio website Khalid Imam" />
-    <title>Khalid Imam - Home</title>
+    <title>Khalid Imam - Contact Formulier</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body> 
@@ -15,7 +15,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projecten.html">Mijn projecten</a></li>
                 <li><a href="blog.html">Mijn Blog</a></li>
-                <li><a href="contact.html">Mijn Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -23,13 +23,29 @@
     <main>
         <section>
             <h2>Contact formulier</h2>
-            <p>vul de formulier hieronder</p>
+            <p>Vul het formulier hieronder</p>
         </section>
-           
+        <form id="contact-formulier" novalidate>
+            <label for="naam">Naam</label>
+            <input type="text" id="naam" name="naam" required aria-describedby="naam-fout">
+            <p id="naam-fout" role="alert"></p>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required aria-describedby="email-fout">
+            <p id="email-fout" role="alert"></p>
+
+            <label for="nummer">Nummer</label>
+            <input type="number" id="nummer" name="nummer" required aria-describedby="nummer-fout">
+            <p id="nummer-fout" role="alert"></p>
+
+            <button type="submit">Versturen</button>
+        </form>
+        <p id="bevestiging" role="status"></p>
     </main>
 
     <footer>
         <p>&copy; 2026 Khalid Imam</p>
     </footer>
+    <script src="js/contact.js"></script>
 </body>
 </html>
